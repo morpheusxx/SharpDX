@@ -328,6 +328,9 @@ namespace SharpDX
         {
             unsafe
             {
+                // Sanity check for null pointers. TODO: Calling code should be checked!
+                if (destination == IntPtr.Zero)
+                    return;
                 Interop.CopyInline((void*)destination, ref data);
             }
         }
